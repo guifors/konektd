@@ -1,0 +1,9 @@
+<ul id="slides">
+  <% @companies.each do |company| %>
+    <div class="slide" data-id="<%= company.id %>">
+      <li><%= company.name %></li>
+    </div>
+  <% end %>
+</ul>
+<button class="controls" id="decline">No</button>
+<button class="controls" id="approve">Yes</button>
