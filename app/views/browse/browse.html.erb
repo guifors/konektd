@@ -1,9 +1,15 @@
-<ul id="slides">
-  <% @companies.each do |company| %>
-    <div class="slide" data-id="<%= company.id %>">
-      <li><%= company.name %></li>
+<div class="container">
+  <ul id="slides">
+    <% @companies.each do |company| %>
+      <li class="slide" data-id="<%= company.id %>">
+        <%= company.name %>
+      </li>
+    <% end %>
+  </ul>
+  <div class="d-flex justify-content-around pt-2">
+    <div id="slide-controls">
+      <button class="controls" id="decline">No</button>
+      <button class="controls" id="approve">Yes</button>
     </div>
-  <% end %>
-</ul>
-<button class="controls" id="decline">No</button>
-<button class="controls" id="approve">Yes</button>
+  </div>
+</div>

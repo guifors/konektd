@@ -1,17 +1,30 @@
-alert("test");
-var slides = document.querySelectorAll('#slides .slide');
-var currentSlide = 0;
+$(function(){
 
-function nextSlide() {
-    goToSlide(currentSlide+1);
-}
+  var $activeSlide = $('#slides .slide:first-child');
 
-function previousSlide() {
-    goToSlide(currentSlide-1);
-}
+  $activeSlide.addClass("showing");
 
-function goToSlide(n) {
-    slides[currentSlide].className = 'slide';
-    currentSlide = (n+slides.length)%slides.length;
-    slides[currentSlide].className = 'slide showing';
-}
+  $('#decline').on("click", function(){
+    goToSlide('decline');
+  });
+
+  $('#approve').on("click", function(){
+    goToSlide('approve');
+  });
+
+  function goToSlide(action){
+    $activeSlide.removeClass("showing");
+    $activeSlide = $activeSlide.next(".slide");
+
+    if(action == "approve"){
+      console.log(action);
+    } else {
+      console.log(action);
+    }
+
+    $activeSlide.addClass("showing");
+
+  }
+
+
+});
